@@ -7,4 +7,8 @@ export type RootStackParamList = {
   };
   TasbeehCounter: undefined;
   Mosques: undefined;
+  PrayerTimesScreen: undefined;
+  AzkarAlSabah: undefined;
+  AzkarAlMasah: undefined;
+  PostPrayerAzkar: undefined;
 };

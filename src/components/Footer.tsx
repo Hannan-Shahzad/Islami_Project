@@ -9,11 +9,11 @@ interface FooterProps {
 }
 const Footer = ({ navigation }: FooterProps) => {
   const menuItems = [
-    { icon: BookOpen, label: 'Quran', screen: 'QuranScreen' },
+    { icon: BookOpen, label: 'Quran', screen: 'HomeScreen' },
     { icon: Book, label: 'Hadith', screen: 'HadithScreen' },
     { icon: Timer, label: 'Tasbeeh', screen: 'TasbeehCounter' },
     { icon: Moon, label: 'Mosques', screen: 'Mosques' },
-    { icon: Clock, label: 'Time', screen: 'TimeScreen' },
+    { icon: Clock, label: 'Time', screen: 'PrayerTimesScreen' },
   ];
 
   return (

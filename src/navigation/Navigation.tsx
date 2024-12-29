@@ -10,6 +10,10 @@ import HomeScreen from '../screens/HomeScreen';
 import SurahDetail from '../screens/SurahDetail';
 import TasbeehCounter from '../screens/TasbeehCounter';
 import NearbyMosquesScreen from '../screens/Mosques';
+import PrayTimesScreen from '../screens/PrayerTimesScreen';
+import AzkarAlSabah from '../screens/AzkarAlSabah';
+import AzkarAlMasah from '../screens/AzkarAlMasah';
+import PostPrayerAzkarScreen from '../screens/PostPrayerAzkar';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -53,6 +57,10 @@ const Navigation: React.FC = () => {
         <Stack.Screen name="SurahDetail" component={SurahDetail} />
         <Stack.Screen name="TasbeehCounter" component={TasbeehCounter} />
         <Stack.Screen name="Mosques" component={NearbyMosquesScreen} />
+        <Stack.Screen name="PrayerTimesScreen" component={PrayTimesScreen} />
+        <Stack.Screen name="AzkarAlSabah" component={AzkarAlSabah} />
+        <Stack.Screen name="AzkarAlMasah" component={AzkarAlMasah} />
+        <Stack.Screen name="PostPrayerAzkar" component={PostPrayerAzkarScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
