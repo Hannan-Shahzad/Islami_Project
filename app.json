@@ -23,6 +23,14 @@
     },
     "web": {
       "favicon": "./assets/icons/OBJECTS.png"
-    }
+    },
+    "plugins": [
+      [
+        "expo-av",
+        {
+          "microphonePermission": false
+        }
+      ]
+    ]
   }
 }

@@ -4,14 +4,16 @@ import { Book, BookOpen, Timer, Moon, Clock } from 'lucide-react-native';
 import colors from '../constants/colors';
 
 const { width } = Dimensions.get('window');
-
-const Footer = () => {
+interface FooterProps {
+  navigation: any;
+}
+const Footer = ({ navigation }: FooterProps) => {
   const menuItems = [
-    { icon: BookOpen, label: 'Quran' },
-    { icon: Book, label: 'Hadith' },
-    { icon: Timer, label: 'Tasbeeh' },
-    { icon: Moon, label: 'Mosques' },
-    { icon: Clock, label: 'Time' },
+    { icon: BookOpen, label: 'Quran', screen: 'QuranScreen' },
+    { icon: Book, label: 'Hadith', screen: 'HadithScreen' },
+    { icon: Timer, label: 'Tasbeeh', screen: 'TasbeehCounter' },
+    { icon: Moon, label: 'Mosques', screen: 'Mosques' },
+    { icon: Clock, label: 'Time', screen: 'TimeScreen' },
   ];
 
   return (
@@ -20,7 +22,7 @@ const Footer = () => {
         <TouchableOpacity 
           key={index} 
           style={styles.menuItem}
-          onPress={() => {/* Add navigation logic */}}
+          onPress={() => navigation.navigate(item.screen)}
         >
           <item.icon 
             size={24} 

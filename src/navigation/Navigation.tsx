@@ -1,14 +1,17 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native'; // Correct import
+import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { RootStackParamList } from './Types';
 
 // Import screens
 import StartScreen from '../screens/StartScreen';
 import { OnboardingCarousel } from '../screens/OnBoardingCarousel';
 import HomeScreen from '../screens/HomeScreen';
+import SurahDetail from '../screens/SurahDetail';
+import TasbeehCounter from '../screens/TasbeehCounter';
+import NearbyMosquesScreen from '../screens/Mosques';
 
-// Create a stack navigator
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 // Example slides for Onboarding Carousel
 const slides = [
@@ -34,19 +37,22 @@ const Navigation: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="StartScreen" screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="StartScreen" component={StartScreen} />
+        <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="Onboarding">
           {({ navigation }) => (
             <OnboardingCarousel
               slides={slides}
               onComplete={() => {
                 // Navigate to the next screen (HomeScreen)
-                navigation.navigate('HomeScreen'); // Make sure HomeScreen is added in navigator
+                navigation.navigate('HomeScreen'); // Ensure HomeScreen is registered
               }}
             />
           )}
         </Stack.Screen>
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
+        <Stack.Screen name="SurahDetail" component={SurahDetail} />
+        <Stack.Screen name="TasbeehCounter" component={TasbeehCounter} />
+        <Stack.Screen name="Mosques" component={NearbyMosquesScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
