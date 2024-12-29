@@ -10,7 +10,7 @@ interface FooterProps {
 const Footer = ({ navigation }: FooterProps) => {
   const menuItems = [
     { icon: BookOpen, label: 'Quran', screen: 'HomeScreen' },
-    { icon: Book, label: 'Hadith', screen: 'HadithScreen' },
+    { icon: Book, label: 'Hadith', screen: 'Categories' },
     { icon: Timer, label: 'Tasbeeh', screen: 'TasbeehCounter' },
     { icon: Moon, label: 'Mosques', screen: 'Mosques' },
     { icon: Clock, label: 'Time', screen: 'PrayerTimesScreen' },

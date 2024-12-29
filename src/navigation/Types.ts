@@ -11,4 +11,12 @@ export type RootStackParamList = {
   AzkarAlSabah: undefined;
   AzkarAlMasah: undefined;
   PostPrayerAzkar: undefined;
+  Categories: undefined;
+  Hadeeths: { categoryId: number };
+  HadeethDetail: { id: number };
+  FirstScreen: undefined;
+  SunnahScreen: undefined;
+  QiblaScreen: undefined;
+  ContactScreen: undefined;
+  AuthScreen: undefined;
 };

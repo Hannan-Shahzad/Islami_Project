@@ -6,7 +6,6 @@ import { RootStackParamList } from './Types';
 // Import screens
 import StartScreen from '../screens/StartScreen';
 import { OnboardingCarousel } from '../screens/OnBoardingCarousel';
-import HomeScreen from '../screens/HomeScreen';
 import SurahDetail from '../screens/SurahDetail';
 import TasbeehCounter from '../screens/TasbeehCounter';
 import NearbyMosquesScreen from '../screens/Mosques';
@@ -14,6 +13,15 @@ import PrayTimesScreen from '../screens/PrayerTimesScreen';
 import AzkarAlSabah from '../screens/AzkarAlSabah';
 import AzkarAlMasah from '../screens/AzkarAlMasah';
 import PostPrayerAzkarScreen from '../screens/PostPrayerAzkar';
+import CategoryScreen from '../screens/CategoryScreen';
+import HadeethScreen from '../screens/HadeethScreen';
+import HadeethDetail from '../screens/HadeethDetailScreen';
+import HomeScreen from '../screens/HomeScreen';
+import FirstScreen from '../screens/FirstScreen';
+import QiblaScreen from '../screens/QiblaScreen';
+import ContactScreen from '../screens/ContactScreen';
+import SunnahScreen from '../screens/SunnahScreen';
+import AuthScreen from '../screens/AuthScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -48,7 +56,7 @@ const Navigation: React.FC = () => {
               slides={slides}
               onComplete={() => {
                 // Navigate to the next screen (HomeScreen)
-                navigation.navigate('HomeScreen'); // Ensure HomeScreen is registered
+                navigation.navigate('FirstScreen'); // Ensure HomeScreen is registered
               }}
             />
           )}
@@ -61,6 +69,20 @@ const Navigation: React.FC = () => {
         <Stack.Screen name="AzkarAlSabah" component={AzkarAlSabah} />
         <Stack.Screen name="AzkarAlMasah" component={AzkarAlMasah} />
         <Stack.Screen name="PostPrayerAzkar" component={PostPrayerAzkarScreen} />
+        <Stack.Screen name="Categories" component={CategoryScreen} />
+        <Stack.Screen name="Hadeeths" component={HadeethScreen} />
+        <Stack.Screen name="HadeethDetail">
+          {({ route }) => <HadeethDetail id={route.params.id.toString()} />}
+        </Stack.Screen>
+        <Stack.Screen 
+        name="FirstScreen" 
+        component={FirstScreen}
+        options={{ headerShown: false }} // Since we have our own header
+      />
+      <Stack.Screen name="QiblaScreen" component={QiblaScreen} />
+      <Stack.Screen name="ContactScreen" component={ContactScreen} />
+      <Stack.Screen name="SunnahScreen" component={SunnahScreen} />
+      <Stack.Screen name="AuthScreen" component={AuthScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

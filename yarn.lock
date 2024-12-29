@@ -3371,7 +3371,7 @@ expo-keep-awake@~14.0.1:
   resolved "https://registry.npmjs.org/expo-keep-awake/-/expo-keep-awake-14.0.1.tgz"
   integrity sha512-c5mGCAIk2YM+Vsdy90BlEJ4ZX+KG5Au9EkJUIxXWlpnuKmDAJ3N+5nEZ7EUO1ZTheqoSBeAo4jJ8rTWPU+JXdw==
 
-expo-linear-gradient@^14.0.1:
+expo-linear-gradient@~14.0.1:
   version "14.0.1"
   resolved "https://registry.npmjs.org/expo-linear-gradient/-/expo-linear-gradient-14.0.1.tgz"
   integrity sha512-apGtUO9AZ52ZWvX9f6K9TamWw8XcUby7jZ0Pcvd5LxUO7pl7tDPx2VlKqpzbhhS4yfCiUwX58wqocwVnE/0ZVg==
@@ -3419,6 +3419,13 @@ expo-permissions@^14.4.0:
   version "14.4.0"
   resolved "https://registry.npmjs.org/expo-permissions/-/expo-permissions-14.4.0.tgz"
   integrity sha512-oAcnJ7dlZhpBydK73cwomA2xofizayVUz+FW5REl7dMu7MYyeN/3aqhlpZ3mYddrxvG161bqu97MQr01UixUnw==
+
+expo-sensors@~14.0.1:
+  version "14.0.1"
+  resolved "https://registry.npmjs.org/expo-sensors/-/expo-sensors-14.0.1.tgz"
+  integrity sha512-dgSUCrNEvOpqI9hj2QI1r0hZJux1b7W4Jz+f2Ahg8UvyMn4UpOU39YbHDDJ6dvvXEdeeYYFknM0XJYAyhzkPAw==
+  dependencies:
+    invariant "^2.2.4"
 
 expo-status-bar@~2.0.0:
   version "2.0.0"
@@ -4159,14 +4166,16 @@ isexe@^2.0.0:
     "@react-navigation/native-stack" "^7.2.0"
     "@react-navigation/stack" "^7.1.1"
     "@supabase/supabase-js" "^2.47.10"
+    "@types/react-navigation" "^3.0.8"
     axios "^1.7.9"
     expo "~52.0.23"
     expo-av "~15.0.1"
     expo-blur "^14.0.1"
-    expo-linear-gradient "^14.0.1"
+    expo-linear-gradient "~14.0.1"
     expo-location "~18.0.4"
     expo-notifications "~0.29.11"
     expo-permissions "^14.4.0"
+    expo-sensors "~14.0.1"
     expo-status-bar "~2.0.0"
     islamic_app "file:"
     lucide-react-native "^0.469.0"
@@ -4174,6 +4183,7 @@ isexe@^2.0.0:
     react-native "0.76.5"
     react-native-gesture-handler "^2.21.2"
     react-native-get-random-values "^1.11.0"
+    react-native-linear-gradient "^2.8.3"
     react-native-maps "1.18.0"
     react-native-reanimated "^3.16.6"
     react-native-safe-area-context "^5.0.0"
@@ -4528,6 +4538,11 @@ lucide-react-native@^0.469.0:
   version "0.469.0"
   resolved "https://registry.npmjs.org/lucide-react-native/-/lucide-react-native-0.469.0.tgz"
   integrity sha512-r3FRoWGymkSoFzZ2JeDHyHzs3IdS9EFbG/uTKMZCR5VtrYq81yhXGu768aqHrMBXYiJeSHGSd7ogzJDPoUdYCg==
+
+lucide-react@^0.469.0:
+  version "0.469.0"
+  resolved "https://registry.npmjs.org/lucide-react/-/lucide-react-0.469.0.tgz"
+  integrity sha512-28vvUnnKQ/dBwiCQtwJw7QauYnE7yd2Cyp4tTTJpvglX4EMpbflcdBgrgToX2j71B3YvugK/NH3BGUk+E/p/Fw==
 
 make-dir@^2.0.0, make-dir@^2.1.0:
   version "2.1.0"
@@ -5518,6 +5533,11 @@ react-native-get-random-values@^1.11.0:
   dependencies:
     fast-base64-decode "^1.0.0"
 
+react-native-linear-gradient@^2.8.3:
+  version "2.8.3"
+  resolved "https://registry.npmjs.org/react-native-linear-gradient/-/react-native-linear-gradient-2.8.3.tgz"
+  integrity sha512-KflAXZcEg54PXkLyflaSZQ3PJp4uC4whM7nT/Uot9m0e/qxFV3p6uor1983D1YOBJbJN7rrWdqIjq0T42jOJyA==
+
 react-native-maps@1.18.0:
   version "1.18.0"
   resolved "https://registry.npmjs.org/react-native-maps/-/react-native-maps-1.18.0.tgz"
@@ -5621,7 +5641,7 @@ react-refresh@^0.14.0, react-refresh@^0.14.2:
   resolved "https://registry.npmjs.org/react-refresh/-/react-refresh-0.14.2.tgz"
   integrity sha512-jCvmsr+1IUSMUyzOkRcvnVbX3ZYC6g9TDrDbFuFmRDq7PD4yaGbLKNQL6k2jnArV8hjYxh7hVhAZB6s9HDGpZA==
 
-react@*, "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.2.0, react@^18.3.1, "react@>= 17.0.1", "react@>= 18.2.0", react@>=16.8, react@>=17.0.0:
+react@*, "react@^16.5.1 || ^17.0.0 || ^18.0.0", "react@^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0", "react@^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.2.0, react@^18.3.1, "react@>= 17.0.1", "react@>= 18.2.0", react@>=16.8, react@>=17.0.0:
   version "18.3.1"
   resolved "https://registry.npmjs.org/react/-/react-18.3.1.tgz"
   integrity sha512-wS+hAgJShR0KhEvPJArfuPVN1+Hz1t0Y6n5jLrGQbkb4urgPE/0Rve+1kMB1v/oWgHgm4WIcV+i7F2pTVj+2iQ==
