@@ -1,0 +1,128 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+src/
+│
+├── assets/                         # Static assets (images, icons, sounds, fonts)
+│   ├── icons/
+│   │   └── tasbeeh-icon.png        # Icon for Tasbeeh
+│   ├── images/
+│   │   └── app-banner.jpg          # App banner image
+│   ├── fonts/
+│   │   └── custom-font.ttf         # Custom app font
+│   └── sounds/
+│       └── tasbeeh-click.mp3       # Tasbeeh click sound
+│
+├── components/                     # Reusable components
+│   ├── Header/
+│   │   └── Header.jsx              # Top navigation bar
+│   ├── Footer/
+│   │   └── Footer.jsx              # Footer with links
+│   ├── QuranPlayer/
+│   │   ├── QuranPlayer.jsx         # Quran audio player
+│   │   └── styles.js               # Styles for QuranPlayer
+│   ├── PrayerCard/
+│   │   ├── PrayerCard.jsx          # Component for showing prayer times
+│   │   └── styles.js               # Styles for PrayerCard
+│   └── TasbeehCounter/             # Tasbeeh counter component
+│       ├── TasbeehCounter.jsx      # Counter logic and UI
+│       └── styles.js               # Styles for TasbeehCounter
+│
+├── constants/                      # App-wide constants
+│   ├── colors.js                   # App theme colors
+│   ├── fonts.js                    # Font styles and sizes
+│   ├── routes.js                   # Navigation routes
+│   └── tasbeeh.js                  # Default target counts and other tasbeeh configs
+│
+├── hooks/                          # Custom React hooks
+│   ├── useAuth.js                  # Authentication logic
+│   ├── useQibla.js                 # Logic for finding Qibla direction
+│   └── useTasbeeh.js               # Tasbeeh-specific state management
+│
+├── navigation/                     # App navigation files
+│   ├── TabNavigator.jsx            # Bottom tab navigator
+│   └── StackNavigator.jsx          # Stack navigator for screens
+│
+├── screens/                        # Screen components for navigation
+│   ├── Auth/
+│   │   ├── LoginScreen.jsx         # Login screen
+│   │   ├── RegisterScreen.jsx      # Registration screen
+│   │   └── ForgotPasswordScreen.jsx # Password recovery screen
+│   ├── Home/
+│   │   └── HomeScreen.jsx          # Home dashboard
+│   ├── Quran/
+│   │   ├── QuranScreen.jsx         # Quran verses and translations
+│   │   └── TafsirScreen.jsx        # Detailed Tafsir view
+│   ├── Prayer/
+│   │   ├── PrayerTimesScreen.jsx   # Prayer times display
+│   │   └── QiblaScreen.jsx         # Qibla direction
+│   ├── Hadith/
+│   │   ├── HadithScreen.jsx        # List of hadiths
+│   │   └── HadithDetailScreen.jsx  # Detailed hadith view
+│   ├── Tasbeeh/                    # Tasbeeh counter screens
+│   │   └── TasbeehScreen.jsx       # Full Tasbeeh feature UI
+│   └── Settings/
+│       └── SettingsScreen.jsx      # User settings
+│
+├── services/                       # API services
+│   ├── quranService.js             # Quran-related API calls
+│   ├── prayerService.js            # Prayer time API calls
+│   ├── tasbeehService.js           # Backend integration for Tasbeeh
+│   └── hadithService.js            # Hadith-related API calls
+│
+├── styles/                         # Shared styles
+│   ├── global.js                   # Global styles
+│   └── theme.js                    # Theme definitions
+│
+├── utils/                          # Utility functions
+│   ├── formatDate.js               # Helper for date formatting
+│   ├── geoLocation.js              # Helper for location services
+│   └── storage.js                  # Local storage utilities (e.g., AsyncStorage)
+│
+├── App.jsx                         # Main app component
+└── index.js                        # Entry point
