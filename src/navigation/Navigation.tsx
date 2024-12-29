@@ -49,6 +49,7 @@ const Navigation: React.FC = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator initialRouteName="StartScreen" screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="AuthScreen" component={AuthScreen} />
         <Stack.Screen name="StartScreen" component={StartScreen} />
         <Stack.Screen name="Onboarding">
           {({ navigation }) => (
@@ -82,7 +83,6 @@ const Navigation: React.FC = () => {
       <Stack.Screen name="QiblaScreen" component={QiblaScreen} />
       <Stack.Screen name="ContactScreen" component={ContactScreen} />
       <Stack.Screen name="SunnahScreen" component={SunnahScreen} />
-      <Stack.Screen name="AuthScreen" component={AuthScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -14,7 +14,7 @@ export type RootStackParamList = {
   Categories: undefined;
   Hadeeths: { categoryId: number };
   HadeethDetail: { id: number };
-  FirstScreen: undefined;
+  FirstScreen: { isLoggedIn: boolean; name: string };
   SunnahScreen: undefined;
   QiblaScreen: undefined;
   ContactScreen: undefined;
