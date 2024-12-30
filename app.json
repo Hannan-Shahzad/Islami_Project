@@ -19,7 +19,11 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/icons/OBJECTS.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "permissions": [
+        "android.permission.MODIFY_AUDIO_SETTINGS"
+      ],
+      "package": "com.ayaanahmad.islamic_app"
     },
     "web": {
       "favicon": "./assets/icons/OBJECTS.png"
@@ -31,6 +35,11 @@
           "microphonePermission": false
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "a8bfee30-b142-4446-8a20-1852c575065c"
+      }
+    }
   }
 }

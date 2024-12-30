@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-import { Book, BookOpen, Timer, Moon, Clock } from 'lucide-react-native';
+import { Book, BookOpen, Timer, Moon, Clock, Bookmark } from 'lucide-react-native';
 import colors from '../constants/colors';
 
 const { width } = Dimensions.get('window');
@@ -14,6 +14,7 @@ const Footer = ({ navigation }: FooterProps) => {
     { icon: Timer, label: 'Tasbeeh', screen: 'TasbeehCounter' },
     { icon: Moon, label: 'Mosques', screen: 'Mosques' },
     { icon: Clock, label: 'Time', screen: 'PrayerTimesScreen' },
+    { icon: Bookmark, label: 'Bookmark', screen: 'BookmarkScreen' },
   ];
 
   return (

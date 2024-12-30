@@ -22,6 +22,7 @@ import QiblaScreen from '../screens/QiblaScreen';
 import ContactScreen from '../screens/ContactScreen';
 import SunnahScreen from '../screens/SunnahScreen';
 import AuthScreen from '../screens/AuthScreen';
+import BookmarksScreen from '../screens/BookmarkScreen';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -83,6 +84,7 @@ const Navigation: React.FC = () => {
       <Stack.Screen name="QiblaScreen" component={QiblaScreen} />
       <Stack.Screen name="ContactScreen" component={ContactScreen} />
       <Stack.Screen name="SunnahScreen" component={SunnahScreen} />
+      <Stack.Screen name="BookmarkScreen" component={BookmarksScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
