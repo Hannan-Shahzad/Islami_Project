@@ -11,7 +11,7 @@ const COLORS = {
   text: '#FFFFFF',       // White
   textSecondary: '#FFD700', // Gold for secondary text
   background: '#000000', // Black background for header
-  bodyBackground: '#FFD700', // Gold background for body
+  bodyBackground: '#D4AF37', // Gold background for body
 };
 
 const { height, width } = Dimensions.get('window');

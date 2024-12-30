@@ -582,6 +582,13 @@
 
 
 
+
+
+
+
+
+
+
 import React, { useState, useEffect, memo, useCallback, useMemo } from 'react';
 import {
   View,
@@ -613,7 +620,6 @@ interface SurahListProps {
   searchQuery?: string;
 }
 
-// Keep existing memo components
 const NumberDisplay = memo(({ index }: { index: number }) => {
   const formattedNumber = (index + 1).toString().padStart(2, '0');
   return (
@@ -651,7 +657,7 @@ const SurahItem = memo(({
   navigation: any;
 }) => {
   const handlePress = useCallback(() => {
-    const surahNumber = Number((index + 1).toString().replace(/^0+/, ''));
+    const surahNumber = index + 1;
     navigation.navigate('SurahDetail', { surahNumber });
   }, [index, navigation]);
 
@@ -687,12 +693,20 @@ const Footer = memo(({ showLoader }: { showLoader: boolean }) => (
   </>
 ));
 
+const debounce = (func: Function, delay: number) => {
+  let timer: NodeJS.Timeout;
+  return (...args: any[]) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => func(...args), delay);
+  };
+};
+
 const SurahList = ({ navigation, searchQuery }: SurahListProps) => {
   const [surahs, setSurahs] = useState<Surah[]>([]);
-  const [filteredSurahs, setFilteredSurahs] = useState<Surah[]>([]);
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [page, setPage] = useState(0);
+  const [filteredSurahs, setFilteredSurahs] = useState<Surah[]>([]);
 
   const itemsPerPage = 5;
 
@@ -727,6 +741,33 @@ const SurahList = ({ navigation, searchQuery }: SurahListProps) => {
     setRefreshing(false);
   }, []);
 
+  const debouncedSearch = useMemo(() => 
+    debounce((query: string) => {
+      if (!query) {
+        setFilteredSurahs(surahs);
+        return;
+      }
+
+      const searchTerm = query.toLowerCase();
+      const filtered = surahs.filter(surah => 
+        surah.surahName.toLowerCase().includes(searchTerm) ||
+        surah.surahNameArabic.toLowerCase().includes(searchTerm) ||
+        surah.surahNameTranslation.toLowerCase().includes(searchTerm)
+      );
+
+      setFilteredSurahs(filtered);
+      setPage(0);
+    }, 300), [surahs]
+  );
+
+  useEffect(() => {
+    fetchSurahs();
+  }, [fetchSurahs]);
+
+  useEffect(() => {
+    debouncedSearch(searchQuery || '');
+  }, [searchQuery, debouncedSearch]);
+
   const loadMoreSurahs = useCallback(() => {
     if ((page + 1) * itemsPerPage < filteredSurahs.length) {
       setPage(p => p + 1);
@@ -752,26 +793,6 @@ const SurahList = ({ navigation, searchQuery }: SurahListProps) => {
     (page + 1) * itemsPerPage < filteredSurahs.length,
     [page, filteredSurahs.length]
   );
-
-  useEffect(() => {
-    fetchSurahs();
-    const query = searchQuery || '';
-    
-    if (query === '') {
-      setFilteredSurahs(surahs);
-      return;
-    }
-
-    const searchTerm = query.toLowerCase();
-    const filtered = surahs.filter(surah => 
-      surah.surahName.toLowerCase().includes(searchTerm) ||
-      surah.surahNameArabic.toLowerCase().includes(searchTerm) ||
-      surah.surahNameTranslation.toLowerCase().includes(searchTerm)
-    );
-    
-    setFilteredSurahs(filtered);
-    setPage(0);
-  }, [searchQuery, surahs, fetchSurahs]);
 
   if (!fontsLoaded || loading) {
     return <LoadingView />;
@@ -806,9 +827,11 @@ const SurahList = ({ navigation, searchQuery }: SurahListProps) => {
   );
 };
 
+
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
+    marginTop:25
   },
   container: {
     flex: 1,
@@ -906,4 +929,3 @@ const styles = StyleSheet.create({
 });
 
 export default memo(SurahList);
-
